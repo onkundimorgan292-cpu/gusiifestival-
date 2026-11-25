@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gusii Festival — December 2026 | Official Online Tickets</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#08080A',
+            charcoal: '#111216',
+            gold: {
+              400: '#F5D061',
+              500: '#D4AF37',
+              600: '#AA841E',
+            },
+            emeraldLive: '#10B981',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background-color: #08080A;
+      color: #F4F4F6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .african-pattern {
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(234, 88, 12, 0.14) 0%, transparent 40%),
+        repeating-linear-gradient(
+          45deg,
+          rgba(212, 175, 55, 0.04) 0px,
+          rgba(212, 175, 55, 0.04) 10px,
+          transparent 10px,
+          transparent 22px
+        );
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #F5D061 0%, #D4AF37 50%, #9E7816 100%);
+    }
+    .ticket-perforation {
+      background-image: radial-gradient(circle at 0 50%, #08080A 12px, transparent 13px),
+                        radial-gradient(circle at 100% 50%, #08080A 12px, transparent 13px);
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printable-ticket-area,
+      #printable-ticket-area * {
+        visibility: visible;
+      }
+      #printable-ticket-area {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #08080A !important;
+        padding: 20px;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-gold-500 selection:text-black">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden transform transition-all duration-300 max-w-sm">
+    <div id="toast-box" class="flex items-center gap-3 px-4 py-3 rounded-xl border border-gold-500/40 bg-charcoal shadow-2xl text-sm font-medium text-white">
+      <span id="toast-icon" class="text-gold-400 text-lg">✓</span>
+      <span id="toast-message">Action completed</span>
+    </div>
+  </div>
+
+  <!-- Top Navigation -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-obsidian/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-lg gold-gradient text-black font-display font-extrabold flex items-center justify-center text-lg shadow-md">GF</span>
+        <div>
+          <span class="font-display font-bold tracking-wider text-white text-sm sm:text-base block leading-none">GUSII FESTIVAL</span>
+          <span class="text-[11px] text-gold-400 tracking-widest uppercase">December 2026</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Early Booking Live
+        </div>
+        <a href="#booking-section" class="px-4 py-2 rounded-lg gold-gradient text-black font-bold text-xs sm:text-sm hover:brightness-110 transition shadow-lg shadow-gold-500/20">
+          Book Ticket
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative african-pattern border-b border-white/10 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7 space-y-5">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-gold-500/30 text-xs font-semibold text-gold-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>OFFICIAL TICKET PORTAL • CARDINAL OTUNGA, MOSOCHO</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          GUSII <span class="text-transparent bg-clip-text gold-gradient">FESTIVAL</span><br />
+          DECEMBER 2026
+        </h1>
+
+        <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+          Experience the biggest December cultural, music, and celebration gathering in Kisii at <strong class="text-white">Cardinal Otunga, Mosocho (Kisii–Kisumu Road)</strong>. Lock in your early pass via M-Pesa Till <strong class="text-gold-400">1957147</strong> and get your instant serial E-Ticket immediately.
+        </p>
+
+        <!-- Event Quick Info Pills -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+          <div class="p-3.5 rounded-xl bg-charcoal/90 border border-white/10">
+            <div class="text-[11px] uppercase tracking-wider text-gray-400">Venue</div>
+            <div class="text-sm font-bold text-white mt-0.5">Cardinal Otunga, Mosocho</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-charcoal/90 border border-white/10">
+            <div class="text-[11px] uppercase tracking-wider text-gray-400">Date</div>
+            <div id="hero-event-date" class="text-sm font-bold text-white mt-0.5">December 2026 (Festive Season)</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-charcoal/90 border border-white/10">
+            <div class="text-[11px] uppercase tracking-wider text-gray-400">M-Pesa Buy Goods Till</div>
+            <div class="text-sm font-extrabold text-gold-400 mt-0.5">1957147</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#booking-section" class="px-6 py-3.5 rounded-xl gold-gradient text-black font-extrabold text-sm sm:text-base hover:brightness-110 transition shadow-xl shadow-gold-500/20">
+            Book & Pay Early Now
+          </a>
+          <button type="button" id="btn-hero-copy-till" class="px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-gold-500/40 text-gold-400 font-bold text-sm sm:text-base transition">
+            Copy Till: 1957147
+          </button>
+        </div>
+      </div>
+
+      <!-- Countdown & Live Status Card -->
+      <div class="lg:col-span-5">
+        <div class="rounded-2xl bg-charcoal border border-gold-500/30 p-6 sm:p-7 shadow-2xl relative overflow-hidden">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-gold-400 font-bold">Festive Countdown</span>
+              <h2 class="text-lg font-bold text-white mt-0.5">Gusii Festival 2026</h2>
+            </div>
+            <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+              ● INSTANT E-TICKET
+            </span>
+          </div>
+
+          <div class="grid grid-cols-4 gap-2.5 text-center mb-6">
+            <div class="p-3 rounded-xl bg-obsidian border border-white/10">
+              <div id="cd-days" class="text-2xl sm:text-3xl font-extrabold text-gold-400">00</div>
+              <div class="text-[10px] uppercase tracking-wider text-gray-400 mt-1">Days</div>
+            </div>
+            <div class="p-3 rounded-xl bg-obsidian border border-white/10">
+              <div id="cd-hours" class="text-2xl sm:text-3xl font-extrabold text-white">00</div>
+              <div class="text-[10px] uppercase tracking-wider text-gray-400 mt-1">Hours</div>
+            </div>
+            <div class="p-3 rounded-xl bg-obsidian border border-white/10">
+              <div id="cd-mins" class="text-2xl sm:text-3xl font-extrabold text-white">00</div>
+              <div class="text-[10px] uppercase tracking-wider text-gray-400 mt-1">Mins</div>
+            </div>
+            <div class="p-3 rounded-xl bg-obsidian border border-white/10">
+              <div id="cd-secs" class="text-2xl sm:text-3xl font-extrabold text-gold-400">00</div>
+              <div class="text-[10px] uppercase tracking-wider text-gray-400 mt-1">Secs</div>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 text-xs sm:text-sm text-gray-300 bg-obsidian/80 p-4 rounded-xl border border-white/5">
+            <div class="flex justify-between">
+              <span class="text-gray-400">1. Choose Ticket Tier</span>
+              <span class="text-white font-semibold">Regular / VIP / VVIP</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">2. Pay via M-Pesa Till</span>
+              <span class="text-gold-400 font-bold">1957147</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">3. Instant Ticket + WhatsApp</span>
+              <span class="text-emerald-400 font-semibold">0788245106</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Booking Section -->
+  <main id="booking-section" class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-12 space-y-10">
+    <div class="text-center max-w-2xl mx-auto space-y-2">
+      <span class="text-xs uppercase tracking-widest text-gold-400 font-bold">Step 1 • Select Your Pass</span>
+      <h2 class="font-display text-2xl sm:text-4xl font-bold text-white">Choose Your Ticket Tier</h2>
+      <p class="text-gray-400 text-sm sm:text-base">Click any tier below to select it, adjust quantity, and complete your M-Pesa booking.</p>
+    </div>
+
+    <!-- Tier Selection Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Regular Card -->
+      <div id="card-regular" data-tier="regular" class="tier-card cursor-pointer rounded-2xl bg-charcoal border-2 border-white/10 hover:border-gold-500/60 p-6 flex flex-col justify-between transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-orange-500/15 text-orange-400 border border-orange-500/30">REGULAR PASS</span>
+            <span id="badge-regular" class="hidden px-2.5 py-0.5 rounded-full text-xs font-bold bg-gold-500 text-black">SELECTED</span>
+          </div>
+          <div class="text-3xl font-extrabold text-white mt-2">KES 1,500</div>
+          <p class="text-xs text-gray-400 mt-1">Per person • Early Bird Access</p>
+          <ul class="mt-5 space-y-2.5 text-sm text-gray-300">
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Full Main Arena Entry</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Live Performances & Cultural Showcase</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Instant Digital QR E-Ticket</li>
+          </ul>
+        </div>
+        <button type="button" data-select-tier="regular" class="select-tier-btn mt-6 w-full py-3 rounded-xl font-bold text-sm bg-white/10 hover:bg-gold-500 hover:text-black text-white transition">
+          Select Regular — KES 1,500
+        </button>
+      </div>
+
+      <!-- VIP Card -->
+      <div id="card-vip" data-tier="vip" class="tier-card cursor-pointer rounded-2xl bg-charcoal border-2 border-gold-500 p-6 flex flex-col justify-between transition-all shadow-xl shadow-gold-500/10">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/15 text-teal-300 border border-teal-500/30">VIP PASS</span>
+            <span id="badge-vip" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gold-500 text-black">SELECTED</span>
+          </div>
+          <div class="text-3xl font-extrabold text-gold-400 mt-2">KES 2,500</div>
+          <p class="text-xs text-gray-400 mt-1">Per person • Priority Experience</p>
+          <ul class="mt-5 space-y-2.5 text-sm text-gray-300">
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Fast-Track VIP Gate Entry</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Elevated VIP Viewing Lounge</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Dedicated VIP Bar & Restrooms</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Instant Digital QR E-Ticket</li>
+          </ul>
+        </div>
+        <button type="button" data-select-tier="vip" class="select-tier-btn mt-6 w-full py-3 rounded-xl font-bold text-sm gold-gradient text-black transition">
+          Selected: VIP — KES 2,500
+        </button>
+      </div>
+
+      <!-- VVIP Card -->
+      <div id="card-vvip" data-tier="vvip" class="tier-card cursor-pointer rounded-2xl bg-charcoal border-2 border-white/10 hover:border-gold-500/60 p-6 flex flex-col justify-between transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-500/20 text-gold-400 border border-gold-500/40">VVIP EXECUTIVE</span>
+            <span id="badge-vvip" class="hidden px-2.5 py-0.5 rounded-full text-xs font-bold bg-gold-500 text-black">SELECTED</span>
+          </div>
+          <div class="text-3xl font-extrabold text-white mt-2">KES 5,000</div>
+          <p class="text-xs text-gray-400 mt-1">Per person • All-Access Luxury</p>
+          <ul class="mt-5 space-y-2.5 text-sm text-gray-300">
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Front-Row Stage & VVIP Lounge Access</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Exclusive VVIP Gate & Reserved Seating</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Complimentary Welcome Drink & Hospitality</li>
+            <li class="flex items-center gap-2"><span class="text-gold-400">✓</span> Instant Gold Serial QR E-Ticket</li>
+          </ul>
+        </div>
+        <button type="button" data-select-tier="vvip" class="select-tier-btn mt-6 w-full py-3 rounded-xl font-bold text-sm bg-white/10 hover:bg-gold-500 hover:text-black text-white transition">
+          Select VVIP — KES 5,000
+        </button>
+      </div>
+    </div>
+
+    <!-- Checkout & M-Pesa Payment Box -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start pt-4">
+      <!-- Left: M-Pesa Instructions -->
+      <div class="lg:col-span-5 rounded-2xl bg-charcoal border border-gold-500/30 p-6 space-y-5">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-gold-400 font-bold">Step 2 • Pay via M-Pesa</span>
+          <h3 class="text-xl font-bold text-white mt-1">Lipa na M-Pesa Buy Goods</h3>
+          <p class="text-xs text-gray-400 mt-1">Complete payment first on your phone, then enter your M-Pesa code on the right to unlock your ticket immediately.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-obsidian border border-gold-500/40 flex items-center justify-between gap-3">
+          <div>
+            <div class="text-[11px] uppercase tracking-wider text-gray-400">Buy Goods Till Number</div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-gold-400 tracking-wider">1957147</div>
+          </div>
+          <button type="button" id="btn-copy-till" class="px-4 py-2.5 rounded-xl gold-gradient text-black font-bold text-xs sm:text-sm hover:brightness-110 active:scale-95 transition shrink-0">
+            Copy Till
+          </button>
+        </div>
+
+        <ol class="space-y-2.5 text-sm text-gray-300 list-decimal list-inside bg-obsidian/60 p-4 rounded-xl border border-white/5">
+          <li>Go to <strong class="text-white">M-Pesa</strong> on your phone & select <strong class="text-white">Lipa na M-Pesa</strong>.</li>
+          <li>Select <strong class="text-white">Buy Goods and Services</strong>.</li>
+          <li>Enter Till Number: <strong class="text-gold-400">1957147</strong>.</li>
+          <li>Enter Amount: <strong id="mpesa-guide-amount" class="text-emerald-400">KES 2,500</strong> and your M-Pesa PIN.</li>
+          <li>Copy the <strong class="text-white">10-character M-Pesa Code</strong> (e.g. <code class="text-gold-400">TK89X4P2LM</code>) and paste it in the form.</li>
+        </ol>
+
+        <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-xs text-emerald-300">
+          Need help? Direct WhatsApp Desk: <strong class="text-white">0788245106</strong>
+        </div>
+      </div>
+
+      <!-- Right: Client Booking Form -->
+      <form id="booking-form" class="lg:col-span-7 rounded-2xl bg-charcoal border border-white/10 p-6 sm:p-8 space-y-5" novalidate>
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-gold-400 font-bold">Step 3 • Claim Your E-Ticket</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">Client Booking Details</h3>
+          </div>
+          <span class="text-xs text-gray-400">Venue: <strong class="text-white">Cardinal Otunga, Mosocho</strong></span>
+        </div>
+
+        <!-- Quantity & Live Total Bar -->
+        <div class="p-4 rounded-xl bg-obsidian border border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <div class="text-xs text-gray-400">Selected Tier</div>
+            <div id="summary-tier-label" class="text-base font-extrabold text-gold-400">VIP — KES 2,500</div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-gray-400">Qty:</span>
+            <button type="button" id="btn-qty-minus" aria-label="Decrease quantity" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-lg flex items-center justify-center transition">
+              -
+            </button>
+            <span id="qty-display" class="w-8 text-center font-extrabold text-white text-base">1</span>
+            <button type="button" id="btn-qty-plus" aria-label="Increase quantity" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-lg flex items-center justify-center transition">
+              +
+            </button>
+          </div>
+
+          <div class="text-right">
+            <div class="text-xs text-gray-400">Total Payable</div>
+            <div id="summary-total-kes" class="text-xl font-extrabold text-emerald-400">KES 2,500</div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="client-name" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Full Name *</label>
+            <input type="text" id="client-name" required placeholder="e.g. Brian Omwenga" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/15 focus:border-gold-500 focus:outline-none text-white text-sm" />
+          </div>
+          <div>
+            <label for="client-phone" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">WhatsApp / Phone Number *</label>
+            <input type="tel" id="client-phone" required placeholder="e.g. 0712345678" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-white/15 focus:border-gold-500 focus:outline-none text-white text-sm" />
+          </div>
+        </div>
+
+        <div>
+          <label for="mpesa-code" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">M-Pesa Confirmation Code (10 Characters) *</label>
+          <input type="text" id="mpesa-code" maxlength="10" required placeholder="e.g. TK89X4P2LM" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold-500/40 focus:border-gold-500 focus:outline-none text-gold-400 font-mono font-bold uppercase tracking-widest text-base" />
+          <p class="text-[11px] text-gray-400 mt-1">Must match your M-Pesa SMS receipt paid to Till <strong class="text-white">1957147</strong>.</p>
+        </div>
+
+        <div id="form-error" class="hidden p-3 rounded-xl bg-red-500/15 border border-red-500/40 text-red-300 text-xs font-medium"></div>
+
+        <button type="submit" id="btn-submit-booking" class="w-full py-4 rounded-xl gold-gradient text-black font-extrabold text-sm sm:text-base hover:brightness-110 active:scale-[0.99] transition shadow-xl shadow-gold-500/20 flex items-center justify-center gap-2">
+          <span>Generate E-Ticket & Send to WhatsApp (0788245106)</span>
+        </button>
+
+        <div class="flex items-center justify-between pt-1 text-xs text-gray-400">
+          <span>Already booked?</span>
+          <button type="button" id="btn-view-last-ticket" class="text-gold-400 hover:underline font-semibold">
+            View My Latest Ticket
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Generated E-Ticket Modal -->
+  <div id="ticket-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 flex items-center justify-center">
+    <div class="max-w-2xl w-full bg-charcoal border border-gold-500/40 rounded-2xl shadow-2xl overflow-hidden my-auto">
+      <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between no-print">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <h3 class="font-bold text-white text-sm sm:text-base">Official Gusii Festival E-Ticket Ready</h3>
+        </div>
+        <button type="button" id="btn-close-ticket-modal" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold flex items-center justify-center">
+          ✕
+        </button>
+      </div>
+
+      <!-- Printable / Visual Ticket Card -->
+      <div id="printable-ticket-area" class="p-6">
+        <div id="ticket-visual-card" class="rounded-2xl overflow-hidden border-2 border-gold-500 bg-obsidian shadow-2xl">
+          <!-- Top Banner -->
+          <div id="ticket-card-header" class="px-6 py-4 gold-gradient text-black flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <div class="text-[10px] font-extrabold uppercase tracking-widest">Official Admission Pass</div>
+              <div class="font-display text-xl sm:text-2xl font-extrabold tracking-wide">GUSII FESTIVAL 2026</div>
+            </div>
+            <div class="text-right">
+              <div id="ticket-tier-pill" class="px-3 py-1 rounded-full bg-black text-gold-400 text-xs font-extrabold uppercase">VIP PASS</div>
+              <div id="ticket-serial-top" class="font-mono text-xs font-bold mt-1">GF26-0000</div>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-6 grid sm:grid-cols-12 gap-6 items-center">
+            <div class="sm:col-span-8 space-y-3">
+              <div>
+                <div class="text-[11px] uppercase tracking-wider text-gray-400">Ticket Holder</div>
+                <div id="ticket-holder-name" class="text-lg sm:text-xl font-extrabold text-white">Client Name</div>
+                <div id="ticket-holder-phone" class="text-xs text-gray-400">0700000000</div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 pt-2 border-t border-white/10 text-xs">
+                <div>
+                  <span class="text-gray-400 block">Venue</span>
+                  <strong class="text-white">Cardinal Otunga, Mosocho</strong>
+                </div>
+                <div>
+                  <span class="text-gray-400 block">Date</span>
+                  <strong id="ticket-event-date" class="text-white">December 2026</strong>
+                </div>
+                <div>
+                  <span class="text-gray-400 block">Admits & Amount</span>
+                  <strong id="ticket-qty-amount" class="text-gold-400">1x VIP (KES 2,500)</strong>
+                </div>
+                <div>
+                  <span class="text-gray-400 block">M-Pesa Ref (Till 1957147)</span>
+                  <strong id="ticket-mpesa-ref" class="font-mono text-emerald-400">TK89X4P2LM</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- QR Code -->
+            <div class="sm:col-span-4 flex flex-col items-center justify-center bg-white p-3 rounded-xl">
+              <div id="ticket-qr-container" class="flex items-center justify-center"></div>
+              <span id="ticket-serial-bottom" class="font-mono text-[11px] font-extrabold text-black mt-2">GF26-0000</span>
+            </div>
+          </div>
+
+          <div class="px-6 py-2.5 bg-white/5 border-t border-dashed border-white/15 flex items-center justify-between text-[11px] text-gray-400">
+            <span>Present this QR pass at Cardinal Otunga Gate</span>
+            <span class="text-gold-400 font-semibold">Valid Once • Non-Transferable</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="px-6 pb-6 flex flex-wrap gap-3 no-print">
+        <button type="button" id="btn-whatsapp-ticket" class="flex-1 min-w-[200px] py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2">
+          <span>Send Booking to WhatsApp (0788245106)</span>
+        </button>
+        <button type="button" id="btn-download-png" class="py-3 px-4 rounded-xl gold-gradient text-black font-bold text-xs sm:text-sm hover:brightness-110 transition">
+          Download Ticket (PNG)
+        </button>
+        <button type="button" id="btn-print-ticket" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition">
+          Print / Save PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Organizer Admin & Gate Scanner Modal -->
+  <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 flex items-center justify-center">
+    <div class="max-w-4xl w-full bg-charcoal border border-gold-500/40 rounded-2xl shadow-2xl overflow-hidden my-auto">
+      <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-white text-base sm:text-lg">Organizer Admin & Gate Verification</h3>
+          <p class="text-xs text-gray-400">Till: 1957147 • WhatsApp: 0788245106 • Venue: Cardinal Otunga, Mosocho</p>
+        </div>
+        <button type="button" id="btn-close-admin" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold flex items-center justify-center">
+          ✕
+        </button>
+      </div>
+
+      <div class="p-6 space-y-6">
+        <!-- Stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="p-3.5 rounded-xl bg-obsidian border border-white/10">
+            <div class="text-xs text-gray-400">Total Orders</div>
+            <div id="stat-orders" class="text-xl font-extrabold text-white mt-0.5">0</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-obsidian border border-white/10">
+            <div class="text-xs text-gray-400">Tickets Issued</div>
+            <div id="stat-tickets" class="text-xl font-extrabold text-gold-400 mt-0.5">0</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-obsidian border border-white/10">
+            <div class="text-xs text-gray-400">Total Revenue</div>
+            <div id="stat-revenue" class="text-xl font-extrabold text-emerald-400 mt-0.5">KES 0</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-obsidian border border-white/10">
+            <div class="text-xs text-gray-400">Checked In at Gate</div>
+            <div id="stat-checked" class="text-xl font-extrabold text-white mt-0.5">0</div>
+          </div>
+        </div>
+
+        <!-- Gate Serial Verification -->
+        <div class="p-4 rounded-xl bg-obsidian border border-gold-500/30 space-y-3">
+          <div class="text-xs font-bold uppercase tracking-wider text-gold-400">Gate Ticket Verification (Prevent Duplicate Entry)</div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input type="text" id="gate-serial-input" placeholder="Enter Ticket Serial e.g. GF26-4821" class="flex-1 px-4 py-2.5 rounded-xl bg-charcoal border border-white/15 text-white font-mono uppercase text-sm focus:border-gold-500 focus:outline-none" />
+            <button type="button" id="btn-verify-gate" class="px-5 py-2.5 rounded-xl gold-gradient text-black font-bold text-sm hover:brightness-110 transition">
+              Verify & Check In
+            </button>
+          </div>
+          <div id="gate-verify-result" class="hidden text-xs font-semibold p-3 rounded-lg"></div>
+        </div>
+
+        <!-- Update Event Date -->
+        <div class="p-4 rounded-xl bg-obsidian border border-white/10 flex flex-col sm:flex-row items-stretch sm:items-end justify-between gap-3">
+          <div class="flex-1">
+            <label for="admin-date-input" class="block text-xs text-gray-400 mb-1">Custom Event Date Display</label>
+            <input type="text" id="admin-date-input" placeholder="e.g. Saturday, 26th December 2026" class="w-full px-3.5 py-2 rounded-lg bg-charcoal border border-white/15 text-white text-sm" />
+          </div>
+          <div class="flex gap-2">
+            <button type="button" id="btn-save-admin-date" class="px-4 py-2 rounded-lg bg-white/15 hover:bg-white/25 text-white font-bold text-xs sm:text-sm transition">
+              Update Date
+            </button>
+            <button type="button" id="btn-export-csv" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition">
+              Export CSV
+            </button>
+          </div>
+        </div>
+
+        <!-- Bookings Table -->
+        <div class="overflow-x-auto rounded-xl border border-white/10">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-obsidian text-gray-400 uppercase">
+              <tr>
+                <th class="px-3 py-2.5">Serial</th>
+                <th class="px-3 py-2.5">Client</th>
+                <th class="px-3 py-2.5">Tier & Qty</th>
+                <th class="px-3 py-2.5">M-Pesa Code</th>
+                <th class="px-3 py-2.5">Total</th>
+                <th class="px-3 py-2.5">Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-bookings-tbody" class="divide-y divide-white/10 bg-charcoal text-gray-200">
+              <tr>
+                <td colspan="6" class="px-3 py-4 text-center text-gray-400">No bookings recorded on this browser yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-obsidian py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+      <div>
+        <strong class="text-white">GUSII FESTIVAL 2026</strong> • Cardinal Otunga, Mosocho (Kisii) • M-Pesa Till <strong class="text-gold-400">1957147</strong>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://wa.me/254788245106" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-semibold">
+          WhatsApp Support: 0788245106
+        </a>
+        <button type="button" id="btn-open-admin" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/15 text-gray-300 font-semibold transition">
+          Organizer Admin
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const ORGANIZER_TILL = '1957147';
+      const ORGANIZER_WHATSAPP_INTL = '254788245106';
+      const ORGANIZER_WHATSAPP_LOCAL = '0788245106';
+      const EVENT_VENUE = 'Cardinal Otunga, Mosocho (Kisii)';
+      const STORAGE_BOOKINGS_KEY = 'gusii_fest_2026_bookings_v1';
+      const STORAGE_DATE_KEY = 'gusii_fest_2026_event_date_v1';
+
+      const TIERS = {
+        regular: { id: 'regular', name: 'REGULAR', price: 1500, label: 'REGULAR — KES 1,500' },
+        vip: { id: 'vip', name: 'VIP', price: 2500, label: 'VIP — KES 2,500' },
+        vvip: { id: 'vvip', name: 'VVIP', price: 5000, label: 'VVIP — KES 5,000' }
+      };
+
+      let selectedTier = 'vip';
+      let quantity = 1;
+      let currentTicket = null;
+
+      function getEventDate() {
+        return localStorage.getItem(STORAGE_DATE_KEY) || 'December 2026 (Festive Season)';
+      }
+
+      function getBookings() {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_BOOKINGS_KEY)) || [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveBookings(list) {
+        localStorage.setItem(STORAGE_BOOKINGS_KEY, JSON.stringify(list));
+      }
+
+      function showToast(message, isError = false) {
+        const toast = document.getElementById('toast');
+        const box = document.getElementById('toast-box');
+        const icon = document.getElementById('toast-icon');
+        const msg = document.getElementById('toast-message');
+
+        msg.textContent = message;
+        icon.textContent = isError ? '!' : '✓';
+        icon.className = isError ? 'text-red-400 text-lg font-bold' : 'text-gold-400 text-lg font-bold';
+        box.className = isError
+          ? 'flex items-center gap-3 px-4 py-3 rounded-xl border border-red-500/50 bg-charcoal shadow-2xl text-sm font-medium text-white'
+          : 'flex items-center gap-3 px-4 py-3 rounded-xl border border-gold-500/40 bg-charcoal shadow-2xl text-sm font-medium text-white';
+
+        toast.classList.remove('hidden');
+        clearTimeout(window.__toastTimer);
+        window.__toastTimer = setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 3500);
+      }
+
+      function copyTillNumber() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(ORGANIZER_TILL)
+            .then(() => showToast('M-Pesa Till 1957147 copied!'))
+            .catch(() => fallbackCopy(ORGANIZER_TILL));
+        } else {
+          fallbackCopy(ORGANIZER_TILL);
+        }
+      }
+
+      function fallbackCopy(text) {
+        const temp = document.createElement('input');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showToast('M-Pesa Till ' + text + ' copied!');
+      }
+
+      function formatKES(num) {
+        return 'KES ' + Number(num).toLocaleString('en-KE');
+      }
+
+      function updateSelectionUI() {
+        const tierObj = TIERS[selectedTier];
+        const total = tierObj.price * quantity;
+
+        document.querySelectorAll('.tier-card').forEach((card) => {
+          const t = card.getAttribute('data-tier');
+          const badge = document.getElementById('badge-' + t);
+          const btn = card.querySelector('.select-tier-btn');
+          if (t === selectedTier) {
+            card.classList.remove('border-white/10');
+            card.classList.add('border-gold-500', 'shadow-xl', 'shadow-gold-500/10');
+            badge.classList.remove('hidden');
+            btn.className = 'select-tier-btn mt-6 w-full py-3 rounded-xl font-bold text-sm gold-gradient text-black transition';
+            btn.textContent = 'Selected: ' + TIERS[t].name + ' — ' + formatKES(TIERS[t].price);
+          } else {
+            card.classList.remove('border-gold-500', 'shadow-xl', 'shadow-gold-500/10');
+            card.classList.add('border-white/10');
+            badge.classList.add('hidden');
+            btn.className = 'select-tier-btn mt-6 w-full py-3 rounded-xl font-bold text-sm bg-white/10 hover:bg-gold-500 hover:text-black text-white transition';
+            btn.textContent = 'Select ' + TIERS[t].name + ' — ' + formatKES(TIERS[t].price);
+          }
+        });
+
+        document.getElementById('qty-display').textContent = String(quantity);
+        document.getElementById('summary-tier-label').textContent = tierObj.label;
+        document.getElementById('summary-total-kes').textContent = formatKES(total);
+        document.getElementById('mpesa-guide-amount').textContent = formatKES(total);
+      }
+
+      function buildWhatsAppUrl(ticket) {
+        const text = [
+          '*GUSII FESTIVAL 2026 — NEW TICKET BOOKING*',
+          '----------------------------------',
+          '*Serial:* ' + ticket.serial,
+          '*Name:* ' + ticket.name,
+          '*Phone:* ' + ticket.phone,
+          '*Tier:* ' + ticket.tierName + ' (' + formatKES(ticket.unitPrice) + ')',
+          '*Quantity:* ' + ticket.quantity,
+          '*Total Paid:* ' + formatKES(ticket.total),
+          '*M-Pesa Code:* ' + ticket.mpesaCode,
+          '*Till Paid To:* ' + ORGANIZER_TILL,
+          '*Venue:* ' + EVENT_VENUE,
+          '*Date:* ' + ticket.eventDate,
+          '----------------------------------',
+          'Please confirm my Gusii Festival E-Ticket.'
+        ].join('\n');
+
+        return 'https://wa.me/' + ORGANIZER_WHATSAPP_INTL + '?text=' + encodeURIComponent(text);
+      }
+
+      function openTicketModal(ticket) {
+        currentTicket = ticket;
+        document.getElementById('ticket-tier-pill').textContent = ticket.tierName + ' PASS';
+        document.getElementById('ticket-serial-top').textContent = ticket.serial;
+        document.getElementById('ticket-serial-bottom').textContent = ticket.serial;
+        document.getElementById('ticket-holder-name').textContent = ticket.name;
+        document.getElementById('ticket-holder-phone').textContent = ticket.phone;
+        document.getElementById('ticket-event-date').textContent = ticket.eventDate;
+        document.getElementById('ticket-qty-amount').textContent =
+          ticket.quantity + 'x ' + ticket.tierName + ' (' + formatKES(ticket.total) + ')';
+        document.getElementById('ticket-mpesa-ref').textContent = ticket.mpesaCode;
+
+        const qrContainer = document.getElementById('ticket-qr-container');
+        qrContainer.innerHTML = '';
+        const qrPayload = JSON.stringify({
+          event: 'GUSII_FESTIVAL_2026',
+          serial: ticket.serial,
+          name: ticket.name,
+          tier: ticket.tierName,
+          qty: ticket.quantity,
+          mpesa: ticket.mpesaCode,
+          till: ORGANIZER_TILL
+        });
+
+        if (typeof QRCode !== 'undefined') {
+          new QRCode(qrContainer, {
+            text: qrPayload,
+            width: 112,
+            height: 112,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+          });
+        } else {
+          qrContainer.innerHTML = '<div class="p-3 text-black font-mono font-bold text-xs">' + ticket.serial + '</div>';
+        }
+
+        document.getElementById('ticket-modal').classList.remove('hidden');
+      }
+
+      function downloadTicketPNG() {
+        if (!currentTicket) return;
+        const canvas = document.createElement('canvas');
+        canvas.width = 1000;
+        canvas.height = 460;
+        const ctx = canvas.getContext('2d');
+
+        // Background
+        ctx.fillStyle = '#0B0B0E';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Gold Border
+        ctx.strokeStyle = '#D4AF37';
+        ctx.lineWidth = 8;
+        ctx.strokeRect(12, 12, canvas.width - 24, canvas.height - 24);
+
+        // Top Gold Header Bar
+        const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        grad.addColorStop(0, '#F5D061');
+        grad.addColorStop(0.5, '#D4AF37');
+        grad.addColorStop(1, '#9E7816');
+        ctx.fillStyle = grad;
+        ctx.fillRect(16, 16, canvas.width - 32, 92);
+
+        ctx.fillStyle = '#08080A';
+        ctx.font = 'bold 16px sans-serif';
+        ctx.fillText('OFFICIAL ADMISSION PASS • CARDINAL OTUNGA, MOSOCHO', 42, 48);
+        ctx.font = 'bold 34px serif';
+        ctx.fillText('GUSII FESTIVAL 2026', 42, 88);
+
+        ctx.textAlign = 'right';
+        ctx.font = 'bold 24px sans-serif';
+        ctx.fillText(currentTicket.tierName + ' PASS', canvas.width - 42, 58);
+        ctx.font = 'bold 20px monospace';
+        ctx.fillText(currentTicket.serial, canvas.width - 42, 88);
+        ctx.textAlign = 'left';
+
+        // Ticket Body Details
+        ctx.fillStyle = '#9CA3AF';
+        ctx.font = 'bold 15px sans-serif';
+        ctx.fillText('TICKET HOLDER', 42, 155);
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 30px sans-serif';
+        ctx.fillText(currentTicket.name.toUpperCase(), 42, 192);
+
+        ctx.fillStyle = '#D4AF37';
+        ctx.font = 'bold 20px sans-serif';
+        ctx.fillText(
+          currentTicket.quantity + 'x ' + currentTicket.tierName + '  •  ' + formatKES(currentTicket.total),
+          42,
+          235
+        );
+
+        ctx.fillStyle = '#E5E7EB';
+        ctx.font = '18px sans-serif';
+        ctx.fillText('Venue: ' + EVENT_VENUE, 42, 282);
+        ctx.fillText('Date: ' + currentTicket.eventDate, 42, 314);
+        ctx.fillText('M-Pesa Code: ' + currentTicket.mpesaCode + ' (Till ' + ORGANIZER_TILL + ')', 42, 346);
+
+        // Copy QR from DOM canvas if available
+        const qrCanvas = document.querySelector('#ticket-qr-container canvas');
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(730, 145, 210, 210);
+        if (qrCanvas) {
+          ctx.drawImage(qrCanvas, 742, 157, 186, 186);
+        }
+
+        // Footer Bar
+        ctx.fillStyle = '#18181F';
+        ctx.fillRect(16, 388, canvas.width - 32, 56);
+        ctx.fillStyle = '#F5D061';
+        ctx.font = 'bold 16px sans-serif';
+        ctx.fillText('SERIAL: ' + currentTicket.serial + '   |   PRESENT AT GATE FOR SCANNING', 42, 422);
+
+        const link = document.createElement('a');
+        link.download = 'Gusii-Festival-' + currentTicket.serial + '.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        showToast('Ticket PNG downloaded!');
+      }
+
+      function refreshAdminPanel() {
+        const list = getBookings();
+        let totalTickets = 0;
+        let totalRev = 0;
+        let checkedIn = 0;
+
+        list.forEach((b) => {
+          totalTickets += Number(b.quantity);
+          totalRev += Number(b.total);
+          if (b.checkedIn) checkedIn += 1;
+        });
+
+        document.getElementById('stat-orders').textContent = String(list.length);
+        document.getElementById('stat-tickets').textContent = String(totalTickets);
+        document.getElementById('stat-revenue').textContent = formatKES(totalRev);
+        document.getElementById('stat-checked').textContent = String(checkedIn);
+        document.getElementById('admin-date-input').value = getEventDate();
+
+        const tbody = document.getElementById('admin-bookings-tbody');
+        if (!list.length) {
+          tbody.innerHTML = '<tr><td colspan="6" class="px-3 py-4 text-center text-gray-400">No bookings recorded on this browser yet.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = list
+          .slice()
+          .reverse()
+          .map((b) => {
+            const statusBadge = b.checkedIn
+              ? '<span class="px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-bold">USED</span>'
+              : '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">VALID</span>';
+            return `
+              <tr>
+                <td class="px-3 py-2.5 font-mono font-bold text-gold-400">${b.serial}</td>
+                <td class="px-3 py-2.5"><strong>${b.name}</strong><br><span class="text-gray-400">${b.phone}</span></td>
+                <td class="px-3 py-2.5">${b.tierName} × ${b.quantity}</td>
+                <td class="px-3 py-2.5 font-mono">${b.mpesaCode}</td>
+                <td class="px-3 py-2.5 font-bold">${formatKES(b.total)}</td>
+                <td class="px-3 py-2.5">${statusBadge}</td>
+              </tr>
+            `;
+          })
+          .join('');
+      }
+
+      function initCountdown() {
+        const target = new Date('2026-12-26T12:00:00+03:00').getTime();
+        function tick() {
+          const diff = Math.max(0, target - Date.now());
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const m = Math.floor((diff / 1000 / 60) % 60);
+          const s = Math.floor((diff / 1000) % 60);
+          document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+          document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+          document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+          document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+        }
+        tick();
+        setInterval(tick, 1000);
+      }
+
+      // Event Listeners
+      document.querySelectorAll('.tier-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          selectedTier = card.getAttribute('data-tier');
+          updateSelectionUI();
+        });
+      });
+
+      document.getElementById('btn-qty-minus').addEventListener('click', () => {
+        if (quantity > 1) {
+          quantity -= 1;
+          updateSelectionUI();
+        }
+      });
+
+      document.getElementById('btn-qty-plus').addEventListener('click', () => {
+        if (quantity < 20) {
+          quantity += 1;
+          updateSelectionUI();
+        }
+      });
+
+      document.getElementById('btn-copy-till').addEventListener('click', copyTillNumber);
+      document.getElementById('btn-hero-copy-till').addEventListener('click', copyTillNumber);
+
+      document.getElementById('booking-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const errBox = document.getElementById('form-error');
+        errBox.classList.add('hidden');
+
+        const name = document.getElementById('client-name').value.trim();
+        const phone = document.getElementById('client-phone').value.trim();
+        const mpesaCode = document.getElementById('mpesa-code').value.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+        if (name.length < 2) {
+          errBox.textContent = 'Please enter your full name.';
+          errBox.classList.remove('hidden');
+          return;
+        }
+        if (phone.length < 9) {
+          errBox.textContent = 'Please enter a valid Kenyan phone / WhatsApp number (e.g. 0712345678).';
+          errBox.classList.remove('hidden');
+          return;
+        }
+        if (mpesaCode.length !== 10) {
+          errBox.textContent = 'Please enter the exact 10-character M-Pesa confirmation code paid to Till 1957147.';
+          errBox.classList.remove('hidden');
+          return;
+        }
+
+        const bookings = getBookings();
+        const duplicate = bookings.find((b) => b.mpesaCode === mpesaCode);
+        if (duplicate) {
+          openTicketModal(duplicate);
+          showToast('Existing ticket loaded for M-Pesa code ' + mpesaCode);
+          return;
+        }
+
+        const tierObj = TIERS[selectedTier];
+        const serial = 'GF26-' + Math.floor(1000 + Math.random() * 9000);
+        const ticket = {
+          serial,
+          name,
+          phone,
+          tierId: tierObj.id,
+          tierName: tierObj.name,
+          unitPrice: tierObj.price,
+          quantity,
+          total: tierObj.price * quantity,
+          mpesaCode,
+          eventDate: getEventDate(),
+          createdAt: new Date().toISOString(),
+          checkedIn: false
+        };
+
+        bookings.push(ticket);
+        saveBookings(bookings);
+        openTicketModal(ticket);
+        showToast('Ticket ' + serial + ' generated! Opening WhatsApp...');
+
+        const waUrl = buildWhatsAppUrl(ticket);
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      });
+
+      document.getElementById('btn-view-last-ticket').addEventListener('click', () => {
+        const list = getBookings();
+        if (!list.length) {
+          showToast('No ticket booked yet on this device.', true);
+          return;
+        }
+        openTicketModal(list[list.length - 1]);
+      });
+
+      document.getElementById('btn-close-ticket-modal').addEventListener('click', () => {
+        document.getElementById('ticket-modal').classList.add('hidden');
+      });
+
+      document.getElementById('btn-whatsapp-ticket').addEventListener('click', () => {
+        if (!currentTicket) return;
+        window.open(buildWhatsAppUrl(currentTicket), '_blank', 'noopener,noreferrer');
+      });
+
+      document.getElementById('btn-download-png').addEventListener('click', downloadTicketPNG);
+      document.getElementById('btn-print-ticket').addEventListener('click', () => window.print());
+
+      // Admin Modal Controls
+      document.getElementById('btn-open-admin').addEventListener('click', () => {
+        refreshAdminPanel();
+        document.getElementById('admin-modal').classList.remove('hidden');
+      });
+
+      document.getElementById('btn-close-admin').addEventListener('click', () => {
+        document.getElementById('admin-modal').classList.add('hidden');
+      });
+
+      document.getElementById('btn-save-admin-date').addEventListener('click', () => {
+        const val = document.getElementById('admin-date-input').value.trim();
+        if (val) {
+          localStorage.setItem(STORAGE_DATE_KEY, val);
+          document.getElementById('hero-event-date').textContent = val;
+          showToast('Event date updated!');
+        }
+      });
+
+      document.getElementById('btn-verify-gate').addEventListener('click', () => {
+        const input = document.getElementById('gate-serial-input').value.trim().toUpperCase();
+        const resBox = document.getElementById('gate-verify-result');
+        resBox.classList.remove('hidden');
+
+        if (!input) {
+          resBox.className = 'text-xs font-semibold p-3 rounded-lg bg-red-500/15 text-red-300 border border-red-500/30';
+          resBox.textContent = 'Enter a ticket serial number first.';
+          return;
+        }
+
+        const list = getBookings();
+        const idx = list.findIndex((b) => b.serial === input);
+        if (idx === -1) {
+          resBox.className = 'text-xs font-semibold p-3 rounded-lg bg-red-500/15 text-red-300 border border-red-500/30';
+          resBox.textContent = 'INVALID SERIAL: ' + input + ' not found in local records.';
+          return;
+        }
+
+        if (list[idx].checkedIn) {
+          resBox.className = 'text-xs font-semibold p-3 rounded-lg bg-red-500/20 text-red-300 border border-red-500/40';
+          resBox.textContent = 'ALREADY USED! Ticket ' + input + ' (' + list[idx].name + ') was already scanned at the gate.';
+          return;
+        }
+
+        list[idx].checkedIn = true;
+        saveBookings(list);
+        refreshAdminPanel();
+        resBox.className = 'text-xs font-semibold p-3 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+        resBox.textContent = 'VERIFIED & CHECKED IN: ' + list[idx].name + ' — ' + list[idx].quantity + 'x ' + list[idx].tierName + ' (M-Pesa: ' + list[idx].mpesaCode + ')';
+      });
+
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        const list = getBookings();
+        if (!list.length) {
+          showToast('No bookings to export.', true);
+          return;
+        }
+        const headers = ['Serial', 'Name', 'Phone', 'Tier', 'Quantity', 'Total_KES', 'Mpesa_Code', 'Till', 'Venue', 'Checked_In'];
+        const rows = list.map((b) => [
+          b.serial,
+          '"' + b.name.replace(/"/g, '""') + '"',
+          b.phone,
+          b.tierName,
+          b.quantity,
+          b.total,
+          b.mpesaCode,
+          ORGANIZER_TILL,
+          '"' + EVENT_VENUE + '"',
+          b.checkedIn ? 'YES' : 'NO'
+        ]);
+        const csv = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Gusii-Festival-2026-Bookings.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('CSV exported!');
+      });
+
+      // Initialize
+      document.getElementById('hero-event-date').textContent = getEventDate();
+      updateSelectionUI();
+      initCountdown();
+    })();
+  </script>
+</body>
+</html>
