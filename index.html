@@ -25,7 +25,6 @@
               500: '#D4AF37',
               600: '#AA841E',
             },
-            emeraldLive: '#10B981',
           },
         },
       },
@@ -52,9 +51,47 @@
     .gold-gradient {
       background: linear-gradient(135deg, #F5D061 0%, #D4AF37 50%, #9E7816 100%);
     }
-    .ticket-perforation {
-      background-image: radial-gradient(circle at 0 50%, #08080A 12px, transparent 13px),
-                        radial-gradient(circle at 100% 50%, #08080A 12px, transparent 13px);
+    /* Shiny animated border & gleam for Booked Names compact box */
+    .shiny-box {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(245, 208, 97, 0.16), rgba(17, 18, 22, 0.96) 55%, rgba(212, 175, 55, 0.2));
+      border: 1px solid rgba(245, 208, 97, 0.55);
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.22);
+    }
+    .shiny-box::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 45%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 245, 200, 0.35) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      animation: shimmerSweep 3.2s infinite;
+      pointer-events: none;
+    }
+    @keyframes shimmerSweep {
+      0% { left: -60%; }
+      60% { left: 130%; }
+      100% { left: 130%; }
+    }
+    /* Custom scrollbar for vertical booked names list */
+    .booked-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .booked-scroll::-webkit-scrollbar-track {
+      background: #08080A;
+      border-radius: 9999px;
+    }
+    .booked-scroll::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 9999px;
     }
     @media print {
       body * {
@@ -90,8 +127,8 @@
 
   <!-- Top Navigation -->
   <header class="sticky top-0 z-40 border-b border-white/10 bg-obsidian/90 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      <a href="#" class="flex items-center gap-2.5 shrink-0">
         <span class="w-9 h-9 rounded-lg gold-gradient text-black font-display font-extrabold flex items-center justify-center text-lg shadow-md">GF</span>
         <div>
           <span class="font-display font-bold tracking-wider text-white text-sm sm:text-base block leading-none">GUSII FESTIVAL</span>
@@ -99,25 +136,68 @@
         </div>
       </a>
 
-      <div class="flex items-center gap-3 sm:gap-4">
-        <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Early Booking Live
-        </div>
-        <a href="#booking-section" class="px-4 py-2 rounded-lg gold-gradient text-black font-bold text-xs sm:text-sm hover:brightness-110 transition shadow-lg shadow-gold-500/20">
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Small Shiny Box for People Booked (Tap to open vertical list) -->
+        <button type="button" id="btn-toggle-booked-top" class="shiny-box px-3 py-1.5 rounded-xl flex items-center gap-2 text-left hover:scale-[1.02] active:scale-95 transition cursor-pointer">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+          <span class="text-[11px] sm:text-xs font-extrabold text-gold-400 tracking-wide whitespace-nowrap">
+            Booked (<span id="booked-count-top">50</span>) ▾
+          </span>
+        </button>
+
+        <a href="#booking-section" class="px-3.5 sm:px-4 py-2 rounded-lg gold-gradient text-black font-bold text-xs sm:text-sm hover:brightness-110 transition shadow-lg shadow-gold-500/20 shrink-0">
           Book Ticket
         </a>
       </div>
     </div>
   </header>
 
+  <!-- Vertical Booked Guests Drawer / Popover Modal -->
+  <div id="booked-list-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm p-4 flex items-center justify-center">
+    <div class="w-full max-w-sm rounded-2xl bg-charcoal border border-gold-500/50 shadow-2xl overflow-hidden">
+      <div class="px-5 py-4 gold-gradient text-black flex items-center justify-between">
+        <div>
+          <div class="text-[10px] font-extrabold uppercase tracking-widest">Verified Early Guests</div>
+          <h3 class="font-display font-extrabold text-base sm:text-lg">People Booked (<span id="booked-count-modal">50</span>)</h3>
+        </div>
+        <button type="button" id="btn-close-booked-modal" class="w-8 h-8 rounded-lg bg-black/15 hover:bg-black/25 text-black font-extrabold flex items-center justify-center">
+          ✕
+        </button>
+      </div>
+
+      <div class="px-5 py-2.5 bg-obsidian border-b border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+        <span>Gusii Festival • Cardinal Otunga</span>
+        <span class="text-emerald-400 font-semibold">● Confirmed List</span>
+      </div>
+
+      <!-- Vertical List of 50 Names starting with #1 Richard Orengo -->
+      <ol id="vertical-booked-names" class="booked-scroll max-h-96 overflow-y-auto divide-y divide-white/10 px-5 py-2 text-sm">
+        <!-- Populated dynamically by JS -->
+      </ol>
+
+      <div class="p-4 bg-obsidian border-t border-white/10 flex items-center justify-between gap-2">
+        <a href="#booking-section" id="btn-join-booked-list" class="w-full py-2.5 rounded-xl gold-gradient text-black font-extrabold text-xs text-center hover:brightness-110 transition">
+          Book Your Ticket & Join List
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <section class="relative african-pattern border-b border-white/10 overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid lg:grid-cols-12 gap-10 items-center">
       <div class="lg:col-span-7 space-y-5">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-gold-500/30 text-xs font-semibold text-gold-400">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>OFFICIAL TICKET PORTAL • CARDINAL OTUNGA, MOSOCHO</span>
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-gold-500/30 text-xs font-semibold text-gold-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>OFFICIAL TICKET PORTAL • CARDINAL OTUNGA, MOSOCHO</span>
+          </div>
+
+          <!-- Compact Shiny Box for Booked Names -->
+          <button type="button" id="btn-toggle-booked-hero" class="shiny-box px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 text-xs font-extrabold text-gold-400 hover:scale-[1.02] active:scale-95 transition cursor-pointer">
+            <span>★ View 50 Booked Guests</span>
+            <span class="text-[10px] bg-gold-500 text-black px-1.5 py-0.5 rounded-full font-extrabold">TAP</span>
+          </button>
         </div>
 
         <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -126,10 +206,10 @@
         </h1>
 
         <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-          Experience the biggest December cultural, music, and celebration gathering in Kisii at <strong class="text-white">Cardinal Otunga, Mosocho (Kisii–Kisumu Road)</strong>. Lock in your early pass via M-Pesa Till <strong class="text-gold-400">1957147</strong> and get your instant serial E-Ticket immediately.
+          Experience the biggest December cultural, music, and celebration gathering in Kisii at <strong class="text-white">Cardinal Otunga, Mosocho (Kisii–Kisumu Road)</strong>. Lock in your early pass via M-Pesa Buy Goods and get your instant serial E-Ticket immediately.
         </p>
 
-        <!-- Event Quick Info Pills -->
+        <!-- Event Quick Info Pills (No Till displayed here) -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
           <div class="p-3.5 rounded-xl bg-charcoal/90 border border-white/10">
             <div class="text-[11px] uppercase tracking-wider text-gray-400">Venue</div>
@@ -140,8 +220,8 @@
             <div id="hero-event-date" class="text-sm font-bold text-white mt-0.5">December 2026 (Festive Season)</div>
           </div>
           <div class="p-3.5 rounded-xl bg-charcoal/90 border border-white/10">
-            <div class="text-[11px] uppercase tracking-wider text-gray-400">M-Pesa Buy Goods Till</div>
-            <div class="text-sm font-extrabold text-gold-400 mt-0.5">1957147</div>
+            <div class="text-[11px] uppercase tracking-wider text-gray-400">Ticket Delivery</div>
+            <div class="text-sm font-extrabold text-emerald-400 mt-0.5">Instant Digital QR Pass</div>
           </div>
         </div>
 
@@ -149,9 +229,9 @@
           <a href="#booking-section" class="px-6 py-3.5 rounded-xl gold-gradient text-black font-extrabold text-sm sm:text-base hover:brightness-110 transition shadow-xl shadow-gold-500/20">
             Book & Pay Early Now
           </a>
-          <button type="button" id="btn-hero-copy-till" class="px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-gold-500/40 text-gold-400 font-bold text-sm sm:text-base transition">
-            Copy Till: 1957147
-          </button>
+          <a href="#mpesa-payment-box" class="px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-gold-500/40 text-gold-400 font-bold text-sm sm:text-base transition">
+            Go to M-Pesa Payment
+          </a>
         </div>
       </div>
 
@@ -193,8 +273,8 @@
               <span class="text-white font-semibold">Regular / VIP / VVIP</span>
             </div>
             <div class="flex justify-between">
-              <span class="text-gray-400">2. Pay via M-Pesa Till</span>
-              <span class="text-gold-400 font-bold">1957147</span>
+              <span class="text-gray-400">2. Pay via M-Pesa</span>
+              <span class="text-gold-400 font-bold">Lipa na M-Pesa Buy Goods</span>
             </div>
             <div class="flex justify-between">
               <span class="text-gray-400">3. Instant Ticket + WhatsApp</span>
@@ -280,15 +360,16 @@
     </div>
 
     <!-- Checkout & M-Pesa Payment Box -->
-    <div class="grid lg:grid-cols-12 gap-8 items-start pt-4">
-      <!-- Left: M-Pesa Instructions -->
+    <div id="mpesa-payment-box" class="grid lg:grid-cols-12 gap-8 items-start pt-4">
+      <!-- Left: M-Pesa Instructions (ONLY place where Till 1957147 is displayed to copy) -->
       <div class="lg:col-span-5 rounded-2xl bg-charcoal border border-gold-500/30 p-6 space-y-5">
         <div>
           <span class="text-xs uppercase tracking-widest text-gold-400 font-bold">Step 2 • Pay via M-Pesa</span>
           <h3 class="text-xl font-bold text-white mt-1">Lipa na M-Pesa Buy Goods</h3>
-          <p class="text-xs text-gray-400 mt-1">Complete payment first on your phone, then enter your M-Pesa code on the right to unlock your ticket immediately.</p>
+          <p class="text-xs text-gray-400 mt-1">Copy the Buy Goods Till below, complete payment on your phone, then enter your M-Pesa code on the right.</p>
         </div>
 
+        <!-- Exclusive Copy Till Box -->
         <div class="p-4 rounded-xl bg-obsidian border border-gold-500/40 flex items-center justify-between gap-3">
           <div>
             <div class="text-[11px] uppercase tracking-wider text-gray-400">Buy Goods Till Number</div>
@@ -302,7 +383,7 @@
         <ol class="space-y-2.5 text-sm text-gray-300 list-decimal list-inside bg-obsidian/60 p-4 rounded-xl border border-white/5">
           <li>Go to <strong class="text-white">M-Pesa</strong> on your phone & select <strong class="text-white">Lipa na M-Pesa</strong>.</li>
           <li>Select <strong class="text-white">Buy Goods and Services</strong>.</li>
-          <li>Enter Till Number: <strong class="text-gold-400">1957147</strong>.</li>
+          <li>Paste the copied <strong class="text-white">Buy Goods Till</strong> above.</li>
           <li>Enter Amount: <strong id="mpesa-guide-amount" class="text-emerald-400">KES 2,500</strong> and your M-Pesa PIN.</li>
           <li>Copy the <strong class="text-white">10-character M-Pesa Code</strong> (e.g. <code class="text-gold-400">TK89X4P2LM</code>) and paste it in the form.</li>
         </ol>
@@ -360,7 +441,7 @@
         <div>
           <label for="mpesa-code" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">M-Pesa Confirmation Code (10 Characters) *</label>
           <input type="text" id="mpesa-code" maxlength="10" required placeholder="e.g. TK89X4P2LM" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold-500/40 focus:border-gold-500 focus:outline-none text-gold-400 font-mono font-bold uppercase tracking-widest text-base" />
-          <p class="text-[11px] text-gray-400 mt-1">Must match your M-Pesa SMS receipt paid to Till <strong class="text-white">1957147</strong>.</p>
+          <p class="text-[11px] text-gray-400 mt-1">Enter the exact 10-character transaction code from your M-Pesa confirmation SMS.</p>
         </div>
 
         <div id="form-error" class="hidden p-3 rounded-xl bg-red-500/15 border border-red-500/40 text-red-300 text-xs font-medium"></div>
@@ -430,7 +511,7 @@
                   <strong id="ticket-qty-amount" class="text-gold-400">1x VIP (KES 2,500)</strong>
                 </div>
                 <div>
-                  <span class="text-gray-400 block">M-Pesa Ref (Till 1957147)</span>
+                  <span class="text-gray-400 block">M-Pesa Ref</span>
                   <strong id="ticket-mpesa-ref" class="font-mono text-emerald-400">TK89X4P2LM</strong>
                 </div>
               </div>
@@ -471,7 +552,7 @@
       <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between">
         <div>
           <h3 class="font-bold text-white text-base sm:text-lg">Organizer Admin & Gate Verification</h3>
-          <p class="text-xs text-gray-400">Till: 1957147 • WhatsApp: 0788245106 • Venue: Cardinal Otunga, Mosocho</p>
+          <p class="text-xs text-gray-400">WhatsApp: 0788245106 • Venue: Cardinal Otunga, Mosocho</p>
         </div>
         <button type="button" id="btn-close-admin" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold flex items-center justify-center">
           ✕
@@ -551,11 +632,11 @@
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer (No Till displayed here) -->
   <footer class="border-t border-white/10 bg-obsidian py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
       <div>
-        <strong class="text-white">GUSII FESTIVAL 2026</strong> • Cardinal Otunga, Mosocho (Kisii) • M-Pesa Till <strong class="text-gold-400">1957147</strong>
+        <strong class="text-white">GUSII FESTIVAL 2026</strong> • Cardinal Otunga, Mosocho (Kisii)
       </div>
       <div class="flex items-center gap-4">
         <a href="https://wa.me/254788245106" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-semibold">
@@ -572,10 +653,63 @@
     (function () {
       const ORGANIZER_TILL = '1957147';
       const ORGANIZER_WHATSAPP_INTL = '254788245106';
-      const ORGANIZER_WHATSAPP_LOCAL = '0788245106';
       const EVENT_VENUE = 'Cardinal Otunga, Mosocho (Kisii)';
       const STORAGE_BOOKINGS_KEY = 'gusii_fest_2026_bookings_v1';
       const STORAGE_DATE_KEY = 'gusii_fest_2026_event_date_v1';
+
+      // 50 Pre-booked guests starting with #1 Richard Orengo
+      const INITIAL_BOOKED_GUESTS = [
+        'Richard Orengo',
+        'Faith Kemunto',
+        'Brian Nyambane',
+        'Mercy Moraa',
+        'Kevin Ondieki',
+        'Sharon Kwamboka',
+        'Dennis Mokua',
+        'Lydia Nyaboke',
+        'collins Ongeri',
+        'Esther Kerubo',
+        'Vincent Bosire',
+        'Brenda Bonareri',
+        'Kelvin Momanyi',
+        'Vivian Bochere',
+        'Ian Mogaka',
+        'Cynthia Gesare',
+        'Victor Nyakundi',
+        'Winnie Nyanchama',
+        'Evans Ogeto',
+        'Diana Kemuma',
+        'Felix Makori',
+        'Nancy Mokeira',
+        'Gideon Ombui',
+        'Ruth Bwari',
+        'Oscar Mironga',
+        'Doreen Nyakerario',
+        'Samwel Gichana',
+        'Maureen Mongina',
+        'Clinton Isoe',
+        'Beatrice Nyatichi',
+        'Hillary Matoke',
+        'Agnes Bitengo',
+        'Newton Nyaribo',
+        'Caroline Moraa',
+        'stephen Obare',
+        'Purity Kwamboka',
+        'Allan Kebaso',
+        'Everline Bosibori',
+        'edwin Ogega',
+        'sylvia Nyaboke',
+        'Leonard Maangi',
+        'joyce Kemunto',
+        'derrick Onsongo',
+        'gloria Kerubo',
+        'patrick Nyangau',
+        'valentine Nyanchama',
+        'kenneth Omwenga',
+        'teresa Bonareri',
+        'amos Nyamweya',
+        'monica Gesare'
+      ].map((n) => n.replace(/\b\w/g, (c) => c.toUpperCase()));
 
       const TIERS = {
         regular: { id: 'regular', name: 'REGULAR', price: 1500, label: 'REGULAR — KES 1,500' },
@@ -601,6 +735,50 @@
 
       function saveBookings(list) {
         localStorage.setItem(STORAGE_BOOKINGS_KEY, JSON.stringify(list));
+      }
+
+      function renderBookedGuestsList() {
+        const localNames = getBookings().map((b) => b.name);
+        // Keep Richard Orengo strictly #1, followed by the 49 guests + any new bookings
+        const combined = [...INITIAL_BOOKED_GUESTS];
+        localNames.forEach((n) => {
+          if (n && !combined.some((existing) => existing.toLowerCase() === n.toLowerCase())) {
+            combined.push(n);
+          }
+        });
+
+        document.getElementById('booked-count-top').textContent = String(combined.length);
+        document.getElementById('booked-count-modal').textContent = String(combined.length);
+
+        const listEl = document.getElementById('vertical-booked-names');
+        listEl.innerHTML = combined
+          .map((guestName, index) => {
+            const num = index + 1;
+            const isFirst = num === 1;
+            return `
+              <li class="py-2.5 flex items-center justify-between gap-3 ${isFirst ? 'text-gold-400 font-extrabold' : 'text-gray-200 font-medium'}">
+                <div class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full text-xs font-extrabold flex items-center justify-center shrink-0 ${
+                    isFirst ? 'gold-gradient text-black' : 'bg-white/10 text-gold-400'
+                  }">${num}</span>
+                  <span>${guestName}</span>
+                </div>
+                <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold">
+                  Booked
+                </span>
+              </li>
+            `;
+          })
+          .join('');
+      }
+
+      function openBookedModal() {
+        renderBookedGuestsList();
+        document.getElementById('booked-list-modal').classList.remove('hidden');
+      }
+
+      function closeBookedModal() {
+        document.getElementById('booked-list-modal').classList.add('hidden');
       }
 
       function showToast(message, isError = false) {
@@ -687,7 +865,6 @@
           '*Quantity:* ' + ticket.quantity,
           '*Total Paid:* ' + formatKES(ticket.total),
           '*M-Pesa Code:* ' + ticket.mpesaCode,
-          '*Till Paid To:* ' + ORGANIZER_TILL,
           '*Venue:* ' + EVENT_VENUE,
           '*Date:* ' + ticket.eventDate,
           '----------------------------------',
@@ -717,8 +894,7 @@
           name: ticket.name,
           tier: ticket.tierName,
           qty: ticket.quantity,
-          mpesa: ticket.mpesaCode,
-          till: ORGANIZER_TILL
+          mpesa: ticket.mpesaCode
         });
 
         if (typeof QRCode !== 'undefined') {
@@ -744,16 +920,13 @@
         canvas.height = 460;
         const ctx = canvas.getContext('2d');
 
-        // Background
         ctx.fillStyle = '#0B0B0E';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Gold Border
         ctx.strokeStyle = '#D4AF37';
         ctx.lineWidth = 8;
         ctx.strokeRect(12, 12, canvas.width - 24, canvas.height - 24);
 
-        // Top Gold Header Bar
         const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
         grad.addColorStop(0, '#F5D061');
         grad.addColorStop(0.5, '#D4AF37');
@@ -774,7 +947,6 @@
         ctx.fillText(currentTicket.serial, canvas.width - 42, 88);
         ctx.textAlign = 'left';
 
-        // Ticket Body Details
         ctx.fillStyle = '#9CA3AF';
         ctx.font = 'bold 15px sans-serif';
         ctx.fillText('TICKET HOLDER', 42, 155);
@@ -795,9 +967,8 @@
         ctx.font = '18px sans-serif';
         ctx.fillText('Venue: ' + EVENT_VENUE, 42, 282);
         ctx.fillText('Date: ' + currentTicket.eventDate, 42, 314);
-        ctx.fillText('M-Pesa Code: ' + currentTicket.mpesaCode + ' (Till ' + ORGANIZER_TILL + ')', 42, 346);
+        ctx.fillText('M-Pesa Code: ' + currentTicket.mpesaCode, 42, 346);
 
-        // Copy QR from DOM canvas if available
         const qrCanvas = document.querySelector('#ticket-qr-container canvas');
         ctx.fillStyle = '#FFFFFF';
         ctx.fillRect(730, 145, 210, 210);
@@ -805,7 +976,6 @@
           ctx.drawImage(qrCanvas, 742, 157, 186, 186);
         }
 
-        // Footer Bar
         ctx.fillStyle = '#18181F';
         ctx.fillRect(16, 388, canvas.width - 32, 56);
         ctx.fillStyle = '#F5D061';
@@ -882,6 +1052,14 @@
       }
 
       // Event Listeners
+      document.getElementById('btn-toggle-booked-top').addEventListener('click', openBookedModal);
+      document.getElementById('btn-toggle-booked-hero').addEventListener('click', openBookedModal);
+      document.getElementById('btn-close-booked-modal').addEventListener('click', closeBookedModal);
+      document.getElementById('btn-join-booked-list').addEventListener('click', closeBookedModal);
+      document.getElementById('booked-list-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'booked-list-modal') closeBookedModal();
+      });
+
       document.querySelectorAll('.tier-card').forEach((card) => {
         card.addEventListener('click', () => {
           selectedTier = card.getAttribute('data-tier');
@@ -904,7 +1082,6 @@
       });
 
       document.getElementById('btn-copy-till').addEventListener('click', copyTillNumber);
-      document.getElementById('btn-hero-copy-till').addEventListener('click', copyTillNumber);
 
       document.getElementById('booking-form').addEventListener('submit', (e) => {
         e.preventDefault();
@@ -926,7 +1103,7 @@
           return;
         }
         if (mpesaCode.length !== 10) {
-          errBox.textContent = 'Please enter the exact 10-character M-Pesa confirmation code paid to Till 1957147.';
+          errBox.textContent = 'Please enter the exact 10-character M-Pesa confirmation code.';
           errBox.classList.remove('hidden');
           return;
         }
@@ -958,6 +1135,7 @@
 
         bookings.push(ticket);
         saveBookings(bookings);
+        renderBookedGuestsList();
         openTicketModal(ticket);
         showToast('Ticket ' + serial + ' generated! Opening WhatsApp...');
 
@@ -1043,7 +1221,7 @@
           showToast('No bookings to export.', true);
           return;
         }
-        const headers = ['Serial', 'Name', 'Phone', 'Tier', 'Quantity', 'Total_KES', 'Mpesa_Code', 'Till', 'Venue', 'Checked_In'];
+        const headers = ['Serial', 'Name', 'Phone', 'Tier', 'Quantity', 'Total_KES', 'Mpesa_Code', 'Venue', 'Checked_In'];
         const rows = list.map((b) => [
           b.serial,
           '"' + b.name.replace(/"/g, '""') + '"',
@@ -1052,7 +1230,6 @@
           b.quantity,
           b.total,
           b.mpesaCode,
-          ORGANIZER_TILL,
           '"' + EVENT_VENUE + '"',
           b.checkedIn ? 'YES' : 'NO'
         ]);
@@ -1069,6 +1246,7 @@
 
       // Initialize
       document.getElementById('hero-event-date').textContent = getEventDate();
+      renderBookedGuestsList();
       updateSelectionUI();
       initCountdown();
     })();
